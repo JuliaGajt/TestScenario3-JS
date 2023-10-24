@@ -3,5 +3,4 @@ export const accountEdit = {
     "rating" : "Hot",
     "phone" : "111222333",
     "parentAccount": "sForce"
-
 }
