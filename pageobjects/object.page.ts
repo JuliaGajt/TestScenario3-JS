@@ -19,7 +19,7 @@ export default class ObjectPage extends Page {
 
 
     // edit Acc button on header
-    get editObjBtn() { return $(`//li[contains(@data-target-selection-name,".Edit")]`)}
+    get editObjBtn() { return $(`//div[contains(@class,"windowViewMode-normal")]//li[contains(@data-target-selection-name,".Edit")]`)}
     // save changes on form
     get saveEdit() { return $(`//button[@name="SaveEdit"]`)}
     // success message of editing account, creating contatc etc.

@@ -1,6 +1,6 @@
 import { Given, Then, When } from "@wdio/cucumber-framework";
 import { accountEdit } from "../data/account.data";
-import data from "../data/contact.data";
+import { contact } from "../data/contact.data";
 
 import accountPage from "../pageobjects/account.page";
 const { expect } = require('chai')
@@ -29,10 +29,10 @@ Given(`I am in related tab`, async () => {
 })
 
 When(`I create Contact`, async () => {
-    await accountPage.createContact(data);
+    await accountPage.createContact(contact);
 })
 
 Then(`Success create Contact message is displayed`, async () => {
-    expect(await (await accountPage.successMessage).getText()).equals(`Contact "${data.salutation} ${data.lastName} ${data.firstName}" was created.`)
+    expect(await (await accountPage.successMessage).getText()).equals(`Contact "${contact.salutation} ${contact.lastName} ${contact.firstName}" was created.`)
 })
 

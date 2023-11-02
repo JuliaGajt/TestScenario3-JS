@@ -1,5 +1,5 @@
 import { $ } from '@wdio/globals';
-import { Contact } from '../data/contact.data';
+import Contact from '../data/contact.data';
 import ObjectPage from './object.page';
 
 class AccountPage extends ObjectPage {

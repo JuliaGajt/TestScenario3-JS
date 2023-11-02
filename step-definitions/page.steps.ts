@@ -2,6 +2,7 @@ import { Given, Then, When } from '@wdio/cucumber-framework';
 import { browser } from '@wdio/globals';
 import { accountEdit } from '../data/account.data';
 import accountPage from '../pageobjects/account.page';
+import contactPage from '../pageobjects/contact.page';
 import homePage from '../pageobjects/home.page';
 import LoginPage from '../pageobjects/login.page';
 import searchResultPage from '../pageobjects/searchResult.page';
@@ -12,7 +13,8 @@ const { expect } = require('chai')
 
 const pages = {
     login: LoginPage,
-    home: homePage
+    home: homePage,
+    contact: contactPage
 }
 
 Given(/^I am on the (\w+) page$/, async (page) => {
@@ -66,4 +68,15 @@ Then(/(.*) named "(.*)" can be found by Gloabl Search$/, async (objectType: stri
 When(`I log out`, async () => {
     await homePage.logOut();
 })
+
+// Given(/I am on object ".*" with Id ".*"/, async (objectType: string, Id: string) => {
+//     await pages[objectType].open(Id);
+//     browser.waitUntil(() => browser.execute(
+//         () => document.readyState === 'complete'),
+//         {
+//           timeout: 60 * 1000, // 60 seconds
+//           timeoutMsg: 'Page hasn\'t been loaded.'
+//         }
+//     );
+// })
 
