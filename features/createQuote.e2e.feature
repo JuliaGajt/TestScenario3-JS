@@ -21,8 +21,7 @@ Feature: User can create Quote with choosen products
     Scenario: As a: User 
               I am able to: add products to Quote
         
-        Given I am logged to Salesforce
-        And I am on a Quote
+        Given I am on a Quote
         When I add Products to Quote
         Then all products are visible in Quote Lines related list
         

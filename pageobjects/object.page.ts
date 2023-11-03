@@ -32,8 +32,8 @@ export default class ObjectPage extends Page {
 
 
     // content of fields in details tab
-    async detailFieldnameOut(fieldName: string) { return $(`//span[text()='${fieldName}']/parent::div/following-sibling::div/span/slot[@name='outputField']/*[@data-output-element-id="output-field"]`)}
-    async detailLookupfieldOut(fieldName: string) { return $(`//span[text()='${fieldName}']/parent::div/following-sibling::div/span/slot[@name='outputField']//span[not(@class)]`)}
+    async detailFieldnameOut(fieldName: string) { return $(`//div[contains(@class,'active')]//span[text()='${fieldName}']/parent::div/following-sibling::div/span/slot[@name='outputField']/*[@data-output-element-id="output-field"]`)}
+    async detailLookupfieldOut(fieldName: string) { return $(`//div[contains(@class,'active')]//span[text()='${fieldName}']/parent::div/following-sibling::div/span/slot[@name='outputField']//span[not(@class)]`)}
 
 
 }

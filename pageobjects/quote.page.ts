@@ -82,9 +82,9 @@ class QuotePage extends ObjectPage {
 
     async getAllProductsNamesFromQuoteLines() {
         await (await this.quoteLinesTable).waitForDisplayed();
-        return (await this.quoteLinesProducts).map(async prod => {
-            return await prod.getText();
-        })
+        return await this.quoteLinesProducts.map(async (prod) => {
+            let match = ((await prod.getHTML()).match(/>(.*)</));
+            return match !== null? match[1]?.toString(): null;});
     }
 
 }

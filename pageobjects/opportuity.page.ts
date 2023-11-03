@@ -21,8 +21,7 @@ class OpportunityPage extends ObjectPage {
         quote.ifPrimary? await (await this.primaryCheckboxOnCreateQuoteView).click(): null;
         await (await this.dateInputInCreateQuoteView("Start Date")).setValue(quote.startDate);
         await (await this.dateInputInCreateQuoteView("End Date")).setValue(quote.endDate);
-        await (await this.saveNewQuote).click()
-
+        await (await this.saveNewQuote).click();
     }
 
     async setPriceBookId(pricebookId: string) { 

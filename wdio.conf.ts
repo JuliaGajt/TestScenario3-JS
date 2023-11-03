@@ -63,7 +63,7 @@ export const config: Options.Testrunner = {
     // https://saucelabs.com/platform/platform-configurator
     //
     capabilities: [{
-        browserName: 'edge'
+        browserName: 'chrome'
     }],
 
     //
