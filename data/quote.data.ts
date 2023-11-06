@@ -9,7 +9,10 @@ type Quote = {
     endDate: string,
     priceBookName: string,
     products: Array<Product>,
-    quoteId: string
+    quoteId: string,
+    quoteNumber: string,
+    opportunityName: string,
+    orderAmount: string
 }
 
 let date: Date = new Date();
@@ -25,7 +28,10 @@ export let quote: Quote = {
         {productCode: "ACTOUSBCADAPTER", productName: 'AC to USB-C Wall Adapter'},
         {productCode: "ADMINHOUR", productName: 'Admin Hour'}
     ],
-    quoteId: ''
+    orderAmount: "2 808,21 zł",
+    quoteId: '',
+    quoteNumber: '',
+    opportunityName: ''
 };
 
 

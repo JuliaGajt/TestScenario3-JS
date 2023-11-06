@@ -1,3 +1,5 @@
+import { Product } from "./quote.data";
+
 type Opportunity = {
     accountName: string,
     accountID: string,
@@ -9,7 +11,9 @@ type Opportunity = {
     probability: string,
     opportunityOwner: string,
     priceBookId: string,
-    opportunityId: string
+    opportunityId: string,
+    products: Array<Product>,
+    quoteNumber: string
 }
 
 enum Probability {
@@ -40,7 +44,9 @@ export let opp: Opportunity = {
     probability: Probability["Qualification"],
     opportunityOwner: 'Julia Gajtkowska',
     priceBookId: '01s06000006fOJKAA2',
-    opportunityId: ""
+    opportunityId: "",
+    products: [],
+    quoteNumber: ''
 }
 
 

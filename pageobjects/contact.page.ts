@@ -22,11 +22,16 @@ class ContactPage extends ObjectPage {
 
     async createNewOpportunity(opportunity: Opportunity){
         await (await this.newOpportunityBtn).click();
+        await (await this.oppNameInput).waitForDisplayed();
+        await (await this.oppNameInput).click();
         await (await this.oppNameInput).setValue(opportunity.opportunityName);
+        await (await this.closeDateInput).waitForDisplayed();
         await (await this.closeDateInput).clearValue();
         await (await this.closeDateInput).setValue(opportunity.closeDate.toLocaleDateString());
+        await (await this.stageDropDownBtn).waitForDisplayed();
         await (await this.stageDropDownBtn).click();
         await (await this.stageOptionBtn(opportunity.stage)).click();
+        await (await this.accountNameLookupInput).waitForDisplayed();
         await (await this.accountNameLookupInput).click();
         await (await this.accountNameLookupInput).setValue(opportunity.accountName);
         await (await this.accountNameLookupSelect(opportunity.accountName)).click();

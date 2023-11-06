@@ -2,6 +2,8 @@ import { browser } from '@wdio/globals';
 import type { Options } from '@wdio/types';
 require('dotenv').config({path : `./data.env`});
 
+
+
 export const config: Options.Testrunner = {
     //
     // ====================
@@ -73,7 +75,7 @@ export const config: Options.Testrunner = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'info',
+    logLevel: 'trace',
     //
     // Set specific log levels per logger
     // loggers:

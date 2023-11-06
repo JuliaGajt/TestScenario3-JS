@@ -26,9 +26,7 @@ Then(`all Opportunity credentials in details are correct`, async () => {
     // await expect(await (await opportunityPage.contactRoleName(opp.contactID)).getText()).equals(opp.contactName);
 
     let currentUrl = await browser.getUrl();
-    // console.log(`current url: ${currentUrl}`);
     opp.opportunityId = currentUrl.slice(-23, -5);
-    // console.log(`opportunity ID:  ${opp.opportunityId}`);
 })
 
 Given(`I am on Opportunity`, async () => {

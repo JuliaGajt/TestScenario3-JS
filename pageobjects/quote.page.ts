@@ -35,6 +35,9 @@ class QuotePage extends ObjectPage {
     get quoteLinesProducts() { return $$(`//table[@aria-label="Quote Lines"]/tbody/tr/td[@data-label="Product"]//slot`);};
     get quoteLinesTable() { return $(`//table[@aria-label="Quote Lines"]`);};
 
+    get createOrderBtn(){ return $(`//div[contains(@class,"windowViewMode-normal")]//button[@name="SBQQ__Quote__c.SBQQ__CreateOrderLightning"]`);};
+
+
     async open(Id: string){
         return await super.open(`lightning/r/SBQQ__Quote__c/${Id}/view`);
     }
@@ -82,9 +85,21 @@ class QuotePage extends ObjectPage {
 
     async getAllProductsNamesFromQuoteLines() {
         await (await this.quoteLinesTable).waitForDisplayed();
-        return await this.quoteLinesProducts.map(async (prod) => {
+
+        let prodArray = await this.quoteLinesProducts.map(async prod => {
+            await prod.waitForDisplayed();
             let match = ((await prod.getHTML()).match(/>(.*)</));
-            return match !== null? match[1]?.toString(): null;});
+            return match !== null? match[1]?.toString(): null;
+        });
+        return prodArray;
+    }
+
+    async createAnOrder(){
+        await (await this.createOrderBtn).waitForDisplayed();
+        await (await this.createOrderBtn).click();
+
+        await (await this.saveEdit).waitForDisplayed();
+        await (await this.saveEdit).click();
     }
 
 }

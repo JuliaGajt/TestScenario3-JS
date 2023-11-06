@@ -26,3 +26,27 @@ Feature: User can create Quote with choosen products
         Then all products are visible in Quote Lines related list
         
 
+    Scenario: As a: User
+              I am able to create an Order from Quote
+        
+        Given I am on a Quote
+        When I create an Order
+        Then I am redirected to Order Page
+        And all details are correctly filled 
+
+    Scenario: As a: User 
+              I am able to add Products from Quote to Order
+        
+        Given I am on Order
+        When I add products from Quote to Order
+        Then order amount is changed
+        And all products are listed in related list on Order
+        
+    Scenario: As a: User 
+        I am able to activate an Order
+        
+        Given I am on Order
+        When activate an Order
+        Then Order details are updated after activation
+        
+        
