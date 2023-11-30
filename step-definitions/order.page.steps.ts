@@ -6,7 +6,7 @@ import { user } from "../data/user.data";
 import orderPage from "../pageobjects/order.page";
 const { expect } = require('chai');
 
-let activationDate;
+let activationDate: string;
 
 Then(`I am redirected to Order Page`, async () => {
     await (await orderPage.activateOrderBtn).waitForDisplayed();

@@ -25,7 +25,7 @@ Feature: User is able to create and edit Accounts and Contact
     Then Success create Contact message is displayed
     And Contact details are visible in Details Tab
     And Contact named "auto test" can be found by Gloabl Search
-
+ 
   Scenario: As Uaser
             I can: log out
     
