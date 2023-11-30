@@ -1,4 +1,5 @@
 import { $ } from "@wdio/globals";
+import { sleep } from "pactum";
 import Contact from "../data/contact.data";
 import ObjectPage from "./object.page";
 
@@ -33,7 +34,7 @@ class AccountPage extends ObjectPage {
     try {
       await (await this.clearLookupSelection).click();
     } catch (ex) {
-      console.log("Lookup is empty");
+      console.log("Lookup is empty.");
     }
 
     await (
@@ -67,11 +68,17 @@ class AccountPage extends ObjectPage {
     await (await this.inputField("Department")).setValue(contact.department);
     await (await this.inputField("Birthdate")).setValue(contact.birthdate);
 
+    // await (await this.inputLookupField("Reports To")).click();
     await (
       await this.inputLookupField("Reports To")
     ).setValue(contact.reportsTo);
+    await sleep(2000);
+
     await (await this.inputLookupField("Reports To")).click();
-    await (await this.optionLookup(contact.reportsTo)).waitForDisplayed();
+
+    await (
+      await this.optionLookup(contact.reportsTo)
+    ).waitForDisplayed({ timeout: 5000, interval: 500 });
     await (await this.optionLookup(contact.reportsTo)).click();
 
     await (await this.dropdownButton("Lead Source")).click();
