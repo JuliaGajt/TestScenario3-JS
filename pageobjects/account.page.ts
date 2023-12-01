@@ -68,7 +68,6 @@ class AccountPage extends ObjectPage {
     await (await this.inputField("Department")).setValue(contact.department);
     await (await this.inputField("Birthdate")).setValue(contact.birthdate);
 
-    // await (await this.inputLookupField("Reports To")).click();
     await (
       await this.inputLookupField("Reports To")
     ).setValue(contact.reportsTo);
